@@ -18,10 +18,10 @@ import com.crm.qa.base.TestParent;
 
 public class TestUtil extends TestParent{
 	
-	public static long PAGE_LOAD_TIMEOUT = 20;
-	public static long IMPLICIT_WAIT = 20;
+	public static long PAGE_LOAD_TIMEOUT = 10;
+	public static long IMPLICIT_WAIT = 10;
 
-	public static String TESTDATA_SHEET_PATH = "D:\\ClassicCRMPro\\src\\main\\java\\com\\crm\\qa\\testdata\\FreeCrmTestData.xlsx";
+	public static String TESTDATA_SHEET_PATH = "/ClassicCRMPro/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx";
 
 	static Workbook book;
 	static Sheet sheet;
@@ -52,7 +52,7 @@ public class TestUtil extends TestParent{
 		for (int i = 0; i < sheet.getLastRowNum(); i++) {
 			for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
 				data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
-				// System.out.println(data[i][k]);
+			//	 System.out.println(data[i][k]);
 			}
 		}
 		return data;

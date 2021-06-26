@@ -1,6 +1,7 @@
 package com.crm.qa.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +12,7 @@ import com.crm.qa.utils.Utilility;
 public class HomePage extends TestParent {
 
 	Utilility util = new Utilility();
+	Actions a=new Actions(driver);
 
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -20,7 +22,7 @@ public class HomePage extends TestParent {
 	@CacheLookup
 	public WebElement loggedInUserLabel;
 
-	@FindBy(xpath = "//a[contains(text(),'Contacts')]")
+	@FindBy(xpath = "//li/a[contains(text(),'Contacts')]")
 	WebElement contactsLink;
 	
 	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
@@ -36,8 +38,10 @@ public class HomePage extends TestParent {
 	}
 	
 	public NewContactsPage clickOnNewContactsLink() {
-		util.mouseHover(contactsLink);
-		newContactLink.click();
+		a.moveToElement(contactsLink).moveToElement(newContactLink).click().build().perform();
+		
+		//util.mouseHover(contactsLink);
+		//newContactLink.click();
 	//	util.mouseHover(newContactsLink);
 	//	util.click(newContactsLink);
 		return new NewContactsPage();

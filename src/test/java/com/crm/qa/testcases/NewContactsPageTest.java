@@ -33,7 +33,8 @@ public class NewContactsPageTest extends TestParent {
 		loginPage = new LoginPage();
 		contactsPage = new NewContactsPage();
 		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
-		contactsPage=homePage.clickOnNewContactsLink();
+		//contactsPage=homePage.clickOnNewContactsLink();
+		testUtil.switchToFrame();
 	}
 	
 	
@@ -46,7 +47,8 @@ public class NewContactsPageTest extends TestParent {
 	
 	@Test(priority=1, dataProvider="getCRMTestData")
 	public void validateCreateNewContact(String title, String firstName, String lastName, String company){
-		//homePage.clickOnNewContactsLink();
+		
+		contactsPage=homePage.clickOnNewContactsLink();
 		contactsPage.createNewContact(title, firstName, lastName, company);
 		
 	}
