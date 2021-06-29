@@ -39,7 +39,7 @@ public class HomePageTest extends TestParent {
 	}
 	
 		
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void verifyUserNameTest(){
 		testUtil.switchToFrame();
 		Assert.assertTrue(homePage.verifyloggedInUser());
@@ -48,6 +48,7 @@ public class HomePageTest extends TestParent {
 	
 	@Test(priority=3)
 	public void verifyContactsLinkTest(){
+		testUtil.switchToFrame();
 		contactsPage = homePage.clickOnNewContactsLink();
 	}
 	

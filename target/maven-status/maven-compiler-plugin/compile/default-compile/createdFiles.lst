@@ -1,0 +1,6 @@
+com\crm\qa\pages\LoginPage.class
+com\crm\qa\utils\TestUtil.class
+com\crm\qa\base\TestParent.class
+com\crm\qa\pages\HomePage.class
+com\crm\qa\utils\Utilility.class
+com\crm\qa\pages\NewContactsPage.class

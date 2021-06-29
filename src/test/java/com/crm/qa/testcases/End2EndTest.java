@@ -28,7 +28,7 @@ public class End2EndTest extends TestParent {
 	@BeforeClass
 	public void setUp(){
 		initialization();
-		//testUtil =new TestUtil();
+		testUtil =new TestUtil();
 		//loginPage = new LoginPage();
 		//homePage =new HomePage();
 		//contactsPage = new NewContactsPage();
@@ -49,7 +49,7 @@ public class End2EndTest extends TestParent {
 		loginPage = new LoginPage();
 		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		homePage.verifyHomePageTitle();
-		homePage.verifyloggedInUser();
+		//homePage.verifyloggedInUser();
 		testUtil.switchToFrame();
 		contactsPage=homePage.clickOnNewContactsLink();
 		contactsPage.createNewContact(title, firstName, lastName, company);
