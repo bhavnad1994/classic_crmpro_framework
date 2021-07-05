@@ -35,14 +35,18 @@ public class NewContactsPage extends TestParent {
 	public WebElement saveBtn;
 	
 	
-	public void createNewContact(String title, String ftName, String ltName, String comp)
+	public NewContactDetailsPage createNewContact(String title, String ftName, String ltName, String comp)
 	{
 		Select select = new Select(driver.findElement(By.name("title")));
 		select.selectByVisibleText(title);
+		firstName.clear();
 		firstName.sendKeys(ftName);
+		lastName.clear();
 		lastName.sendKeys(ltName);
+		company.clear();
 		company.sendKeys(comp);
 		util.click(saveBtn);
+		return new NewContactDetailsPage();
 
 	}
 	

@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.crm.qa.base.TestParent;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
+import com.crm.qa.pages.NewContactDetailsPage;
 import com.crm.qa.pages.NewContactsPage;
 import com.crm.qa.utils.TestUtil;
 
@@ -18,6 +19,7 @@ public class NewContactsPageTest extends TestParent {
 	HomePage homePage;
 	TestUtil testUtil;
 	NewContactsPage contactsPage;
+	NewContactDetailsPage newContactDetail;
 	
 	String sheetName = "contacts";
 	
@@ -33,8 +35,8 @@ public class NewContactsPageTest extends TestParent {
 		loginPage = new LoginPage();
 		contactsPage = new NewContactsPage();
 		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
-		//contactsPage=homePage.clickOnNewContactsLink();
 		testUtil.switchToFrame();
+		
 	}
 	
 	
@@ -49,8 +51,8 @@ public class NewContactsPageTest extends TestParent {
 	public void validateCreateNewContact(String title, String firstName, String lastName, String company){
 		
 		contactsPage=homePage.clickOnNewContactsLink();
-		contactsPage.createNewContact(title, firstName, lastName, company);
-		
+		newContactDetail=contactsPage.createNewContact(title, firstName, lastName, company);
+		newContactDetail.verifyEmployeeHeaderName(firstName + " " + lastName);
 	}
 	
 	@AfterClass

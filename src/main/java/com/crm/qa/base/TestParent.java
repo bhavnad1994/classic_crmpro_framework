@@ -35,7 +35,7 @@ public class TestParent {
 	}
 	
 	
-	public static void initialization(){
+	public static void initialization() {
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equals("chrome")){
@@ -55,6 +55,12 @@ public class TestParent {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		
 		driver.get(prop.getProperty("url"));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 		
 	}
 	
